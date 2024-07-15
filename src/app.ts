@@ -10,7 +10,7 @@ import Product from './interfaces/Product'
 
 // Create a new express application instance
 const app: express.Application = express();
-const products: Product[] = require('./data/products.json');;
+const products: Product[] = require('../data/products.json');;
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));

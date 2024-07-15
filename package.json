@@ -1,12 +1,12 @@
 {
-  "name": "nodejs-typescript-shopping-cart",
+  "name": "node-commerce",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
     "dev": "ts-node-dev --respawn --transpileOnly ./src/app.ts",
-    "prod": "tsc && node ./build/app.js"
+    "prod": "tsc && cp -r ./src/views ./dist/ && node ./dist/app.js"
   },
   "author": "Feyyaz Akkuş",
   "license": "MIT",

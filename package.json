@@ -6,7 +6,7 @@
   "scripts": {
     "tsc": "tsc",
     "dev": "ts-node-dev --respawn --transpileOnly ./src/app.ts",
-    "prod": "tsc && cp -r ./src/views ./dist/ && node ./dist/app.js"
+    "prod": "tsc && cp -r ./src/views ./dist/ && node --env-file=.env ./dist/app.js"
   },
   "author": "Feyyaz Akkuş",
   "license": "MIT",
@@ -21,6 +21,7 @@
     "cors": "2.8.5",
     "ejs": "^3.1.10",
     "express": "4.17.1",
+    "express-ejs-layouts": "^2.5.1",
     "express-session": "1.16.2"
   }
 }

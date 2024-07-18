@@ -1,0 +1,23 @@
+[
+  {
+    "id": "men",
+    "name": "Men",
+    "description": ""
+  },
+  {
+    "id": "women",
+    "name": "Women",
+    "description": ""
+  },
+  {
+    "id": "watches",
+    "name": "Watches",
+    "description": ""
+  },
+  {
+    "id": "shoes",
+    "name": "Shoes",
+    "description": ""
+  }
+
+]

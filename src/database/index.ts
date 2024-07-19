@@ -1,4 +1,5 @@
-import Product from '../interfaces/Product';
+import IProduct from '../interfaces/Product';
+import Product from '../models/Product';
 
 export default class Database {
     private static _instance: Database;
@@ -17,8 +18,15 @@ export default class Database {
         return this._instance;
     }
 
-    public getAllProducts(): Product[] {
-        return require('../../data/product-db.json');
+    public getAllProducts(): any {
+        let products: Array<Product> = [];
+        const result = require('../../data/product-db.json');
+
+        result.forEach( (product: IProduct ) => {
+            products.push(new Product(product))
+        });
+
+        return products;
     }
 
     public test(): void {

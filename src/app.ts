@@ -10,6 +10,7 @@ import config from './config';
 
 // Create a new express application instance
 const app: express.Application = express();
+//import Cart from './models/Cart';
 
 // set template engine
 app.use(expressLayouts)

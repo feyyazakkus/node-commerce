@@ -1,7 +1,7 @@
-const express = require('express');
-const router = express.Router();
+import { Router, Request, Response } from 'express';
+const router = Router();
 
-router.get('/checkout', function (req: express.Request, res: express.Response) {
+router.get('/checkout', function (req: Request, res: Response) {
 
     res.render('pages/checkout', {
         title: 'Checkout',

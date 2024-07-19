@@ -1,13 +1,16 @@
-const express = require('express');
-const router = express.Router();
+import { Router, Request, Response } from 'express';
+const router = Router();
 
-router.get('/', function (req: express.Request, res: express.Response) {
-    const products: Product[] = require('../../data/product-db.json');;
-    const filteredProducts = products.filter(product => product.title);
+import Product from '../interfaces/Product';
+import Database from '../database';
+
+router.get('/', function (req: Request, res: Response) {
+    const db = Database.getInstance()
+    const products: Product[] = db.getAllProducts();
 
     res.render('pages/home', {
         title: 'Home',
-        products: filteredProducts
+        products: products
     });
 });
 

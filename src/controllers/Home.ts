@@ -5,9 +5,9 @@ import IProduct from '../interfaces/Product';
 import Product from '../models/Product';
 import Database from '../database';
 
-router.get('/', function (req: Request, res: Response) {
+router.get('/', async function (req: Request, res: Response) {
     const db = Database.getInstance();
-    const products: Product[] = db.getAllProducts();
+    const products: Product[] = await db.getAllProducts();
 
     res.render('pages/home', {
         title: 'Home',

@@ -6,7 +6,8 @@
   "scripts": {
     "tsc": "tsc",
     "dev": "ts-node-dev --respawn ./src/app.ts",
-    "prod": "tsc && cp -r ./src/views ./dist/ && node --env-file=.env ./dist/app.js"
+    "prod": "tsc && cp -r ./src/views ./dist/ && node --env-file=.env ./dist/app.js",
+    "dynamoDB-locale": "java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb"
   },
   "author": "Feyyaz Akkuş",
   "license": "MIT",
@@ -18,6 +19,8 @@
     "typescript": "3.5.3"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.616.0",
+    "@aws-sdk/lib-dynamodb": "^3.616.0",
     "body-parser": "1.19.0",
     "ejs": "^3.1.10",
     "express": "4.17.1",

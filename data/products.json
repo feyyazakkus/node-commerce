@@ -1,0 +1,122 @@
+[
+  {
+    "product_id": "1",
+    "title": "Esprit Ruffle Shirt",
+    "description": "",
+    "category_id": "women",
+    "image_url": "images/product-01.jpg",
+    "price": 16.99
+  },
+  {
+    "product_id": "2",
+    "title": "Classic Trench Coat",
+    "description": "",
+    "category_id": "women",
+    "image_url": "images/product-04.jpg",
+    "price": 75.00
+  },
+  {
+    "product_id": "3",
+    "title": "Front Pocket Jumper",
+    "description": "",
+    "category_id": "women",
+    "image_url": "images/product-05.jpg",
+    "price": 34.75
+  },
+  {
+    "product_id": "4",
+    "title": "Shirt in Stretch Cotton",
+    "description": "",
+    "category_id": "women",
+    "image_url": "images/product-07.jpg",
+    "price": 52.50
+  },
+  {
+    "product_id": "5",
+    "title": "Mini Silver Mesh Watch",
+    "description": "",
+    "category_id": "watches",
+    "image_url": "images/product-15.jpg",
+    "price": 74.99
+  },
+  {
+    "product_id": "6",
+    "title": "Vintage Inspired Classic",
+    "description": "",
+    "category_id": "watches",
+    "image_url": "images/product-06.jpg",
+    "price": 45.99
+  },
+  {
+    "product_id": "7",
+    "title": "Plaid Men's Shirt",
+    "description": "",
+    "category_id": "men",
+    "image_url": "images/product-03.jpg",
+    "price": 35.99
+  },
+
+  {
+    "product_id": "8",
+    "title": "Lightweight Jacket",
+    "description": "",
+    "category_id": "men",
+    "image_url": "images/product-detail-02.jpg",
+    "price": 65.99
+  },
+
+  {
+    "product_id": "9",
+    "title": "Retro Lace Up Sneakers",
+    "description": "",
+    "category_id": "shoes",
+    "image_url": "images/product-19.jpg",
+    "price": 69.99
+  },
+
+  {
+    "product_id": "10",
+    "title": "Converse All Star Hi Plimsolls",
+    "description": "",
+    "category_id": "shoes",
+    "image_url": "images/product-09.jpg",
+    "price": 75.00
+  },
+
+  {
+    "product_id": "11",
+    "title": "Women men Adjustable Cap",
+    "description": "",
+    "category_id": "hats",
+    "image_url": "images/product-17.jpg",
+    "price": 14.99
+  },
+
+  {
+    "product_id": "12",
+    "title": "Kaia Cap",
+    "description": "",
+    "category_id": "hats",
+    "image_url": "images/product-18.jpg",
+    "price": 12.99
+  },
+
+  {
+    "product_id": "13",
+    "title": "Men Pants",
+    "description": "Viverra a consectetur Go sporty this summer with this vintage navy and white striped v-neck t-shirt from the Nike. Perfect for pairing with denim and white kicks for a stylish sporty...",
+    "category_id": "men",
+    "image_url": "images/product-20.jpg",
+    "price": 52.00
+  },
+
+  {
+    "product_id": "14",
+    "title": "Men Shirt Green",
+    "description": "Lightweight woven fabric delivers superior comfort & durability. Material wicks sweat & dries really fast. Super-breathable mesh panels dump excess heat. Built-in brief for enhanced coverage. Ultra comfortable, soft knit waistband...",
+    "category_id": "men",
+    "image_url": "images/product-21.jpg",
+    "price": 41.00
+  }
+
+]

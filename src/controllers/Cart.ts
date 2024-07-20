@@ -1,6 +1,7 @@
 // imports
 import Cart from '../models/Cart';
 import IProduct from '../interfaces/Product';
+import Product from '../models/Product';
 
 // constants
 import { Router, Request, Response } from 'express';
@@ -18,9 +19,9 @@ router.get('/cart', function (req: Request, res: Response) {
     });
 });
 
-router.post('/cart/add', function (req: Request, res: Response) {
+router.post('/cart/add', async function (req: Request, res: Response) {
     const db = Database.getInstance()
-    const products: IProduct[] = db.getAllProducts();
+    const products: Product[] = await db.getAllProducts();
     const product = products.find(product => product.product_id === req.body.productId);
 
     if (!product) {

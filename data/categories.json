@@ -18,6 +18,11 @@
     "id": "shoes",
     "name": "Shoes",
     "description": ""
+  },
+  {
+    "id": "hats",
+    "name": "Hats",
+    "description": ""
   }
 
 ]

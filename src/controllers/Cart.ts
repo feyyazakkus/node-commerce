@@ -4,43 +4,40 @@ import IProduct from '../interfaces/Product';
 import Product from '../models/Product';
 
 // constants
-import { Router, Request, Response } from 'express';
-import Database from '../database';
+import { Request, Response } from 'express';
+import ProductService from '../services/ProductService';
 
-const router = Router();
-
-router.get('/cart', function (req: Request, res: Response) {
+export const showCart = (req: Request, res: Response) => {
     req.session.cart = req.session.cart ? new Cart(req.session.cart) : new Cart({});
-
 
     res.render('pages/cart', {
         title: 'Cart',
         cart: req.session.cart
     });
-});
+};
 
-router.post('/cart/add', async function (req: Request, res: Response) {
-    const db = Database.getInstance()
-    const products: Product[] = await db.getAllProducts();
-    const product = products.find(product => product.product_id === req.body.productId);
+export const addProduct = async (req: Request, res: Response) => {
+    const productID: string = req.body.product_id;
 
-    if (!product) {
-        return res.json({
-            success: false,
-            message: 'Product not found'
-        });
+    if (!productID) {
+        return res.json({ success: false });
     }
 
-    const cart = new Cart(req.session.cart);
-    cart.addItem(product);
+    const product = await ProductService.getProduct(productID);
 
-    // save in session after update the cart
-    req.session.cart = cart;
+    if (product) {
+        const productName = product.title;
+        const cart = req.session.cart ? new Cart(req.session.cart) : new Cart({});
+        cart.addItem(product);
 
-    res.json({
-        success: true,
-        cart: req.session.cart
-    });
-});
+        // save in session after update the cart
+        req.session.cart = cart;
 
-module.exports = router;
+        res.json({
+            success: true,
+            productName,
+            cartItemsCount: req.session.cart.items.length
+        });
+    }
+};
+

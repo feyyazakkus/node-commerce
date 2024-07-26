@@ -223,8 +223,7 @@
 <script src="vendor/daterangepicker/moment.min.js"></script>
 <script src="vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-<script src="vendor/slick/slick.min.js"></script>
-<script src="js/slick-custom.js"></script>
+
 <!--===============================================================================================-->
 <script src="vendor/parallax100/parallax100.js"></script>
 <script>
@@ -274,15 +273,6 @@
         });
     });
 
-    /*---------------------------------------------*/
-
-    $('.js-addcart-detail').each(function(){
-        var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
-        $(this).on('click', function(){
-            swal(nameProduct, "is added to cart !", "success");
-        });
-    });
-
 </script>
 <!--===============================================================================================-->
 <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
@@ -303,3 +293,4 @@
 </script>
 <!--===============================================================================================-->
 <script src="js/main.js"></script>
+<script src="js/cart.js"></script>

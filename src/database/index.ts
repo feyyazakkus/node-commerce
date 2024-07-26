@@ -1,11 +1,12 @@
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { DynamoDBDocumentClient, ScanCommand, ScanCommandInput, GetCommand, GetCommandInput } from "@aws-sdk/lib-dynamodb";
+
 import IProduct from '../interfaces/Product';
 import Product from '../models/Product';
-import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
-import { DynamoDBDocumentClient, ScanCommand } from "@aws-sdk/lib-dynamodb";
 import config from '../config';
 
 export default class Database {
-    private static _instance: Database;
+    private static instance: Database;
     private client: DynamoDBClient;
     public docClient: DynamoDBDocumentClient;
 
@@ -16,34 +17,44 @@ export default class Database {
     }
 
     static getInstance() {
-        if (this._instance) {
-            return this._instance;
+        if (!this.instance) {
+            this.instance = new Database();
+            return this.instance;
         }
 
-        this._instance = new Database();
-
-        return this._instance;
+        return this.instance;
     }
 
-    public async getAllProducts(): Promise<Product[]|[]> {
-        let products: Product[] = [];
-
-        const command = new ScanCommand({ TableName: "Products" });
+    public async scan(params: ScanCommandInput): Promise<any> {
+        const command = new ScanCommand(params);
 
         try {
             const response = await this.docClient.send(command);
 
             if (response && response.Items) {
-                response.Items.forEach((product: any ) => {
-                    products.push(new Product(product))
-                });
+                return response.Items;
             }
-        } catch (error) {
-            console.log("error", error)
+        } catch (e) {
+            return null;
         }
 
-        return products;
+        return null;
     }
 
+    public async getItem(params: GetCommandInput): Promise<any> {
+        const command = new GetCommand(params);
+
+        try {
+            const response = await this.docClient.send(command);
+
+            if (response && response.Item) {
+                return response.Item;
+            }
+        } catch (e) {
+            return null;
+        }
+
+        return null;
+    }
 }
 

@@ -1,11 +1,8 @@
-import { Router, Request, Response } from 'express';
-const router = Router();
+import { Request, Response } from 'express';
 
-router.get('/checkout', function (req: Request, res: Response) {
+export const showCheckout = (req: Request, res: Response): void => {
 
     res.render('pages/checkout', {
         title: 'Checkout',
     });
-});
-
-module.exports = router;
+};

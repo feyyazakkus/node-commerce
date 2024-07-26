@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm run dev",
     "tsc": "tsc",
     "dev": "ts-node-dev --respawn ./src/app.ts",
-    "prod": "tsc && cp -r ./src/views ./dist/ && node --env-file=.env ./dist/app.js",
-    "dynamoDB-locale": "java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb"
+    "prod": "tsc && cp -r ./src/views ./dist/ && node --env-file=.env ./dist/app.js"
   },
   "author": "Feyyaz Akkuş",
   "license": "MIT",

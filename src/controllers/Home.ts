@@ -1,18 +1,15 @@
-import { Router, Request, Response } from 'express';
-const router = Router();
+import { Request, Response } from 'express';
 
 import IProduct from '../interfaces/Product';
 import Product from '../models/Product';
 import Database from '../database';
+import ProductService from '../services/ProductService';
 
-router.get('/', async function (req: Request, res: Response) {
-    const db = Database.getInstance();
-    const products: Product[] = await db.getAllProducts();
+export const showHome = async (req: Request, res: Response) => {
+    const products: Product[] = await ProductService.getAllProducts();
 
     res.render('pages/home', {
         title: 'Home',
         products: products
     });
-});
-
-module.exports = router;
+};

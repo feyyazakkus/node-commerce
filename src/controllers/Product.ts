@@ -1,16 +1,12 @@
 import Product from '../interfaces/Product'
+import { Request, Response } from 'express';
 
-import { Router, Request, Response } from 'express';
-const router = Router();
-
-router.get('/products', function (req: Request, res: Response) {
+export const showProduct = (req: Request, res: Response) => {
     const products: Product[] = require('../../data/products.json');;
-    const filteredProducts = products.filter(product =>  product.description);
+    const product = products.find(product =>  product.product_id == req.params.id);
 
     res.render('pages/products', {
         title: 'Products',
-        products: filteredProducts
+        product: product
     });
-});
-
-module.exports = router;
+};

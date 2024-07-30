@@ -17,6 +17,7 @@ export const showCart = (req: Request, res: Response) => {
     });
 };
 
+// add product
 export const addProduct = async (req: Request, res: Response) => {
     const productID: string = req.body.product_id;
 

@@ -6,9 +6,10 @@ import Product from '../models/Product';
 // constants
 import { Request, Response } from 'express';
 import ProductService from '../services/ProductService';
+import CartHelper from '../helpers/CartHelper';
 
 export const showCart = (req: Request, res: Response) => {
-    req.session.cart = req.session.cart ? new Cart(req.session.cart) : new Cart({});
+    req.session.cart = CartHelper.getCart(req);
 
     res.render('pages/cart', {
         title: 'Cart',
@@ -27,16 +28,14 @@ export const addProduct = async (req: Request, res: Response) => {
 
     if (product) {
         const productName = product.title;
-        const cart = req.session.cart ? new Cart(req.session.cart) : new Cart({});
+        const cart = CartHelper.getCart(req);
         cart.addItem(product);
-
-        // save in session after update the cart
-        req.session.cart = cart;
+        CartHelper.saveCart(req, cart);
 
         res.json({
             success: true,
             productName,
-            cartItemsCount: req.session.cart.items.length
+            cartItemsCount: cart.items.length
         });
     }
 };

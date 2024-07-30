@@ -11,7 +11,7 @@ import config from './config';
 
 // middlewares
 import setLocals from './middlewares/setLocals';
-import errorHandler from './middlewares/error';
+import handleError from './middlewares/handleError';
 
 // create a new express application instance
 const app: express.Application = express();
@@ -37,7 +37,7 @@ app.use(session({
 
 app.use(setLocals);
 app.use('/', routes); // bind routes
-app.use(errorHandler); // // error handler middleware
+app.use(handleError); // // error handler middleware
 
 // start server
 const port: Number = process.env.PORT ? parseInt(process.env.PORT) : 3000;

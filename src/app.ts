@@ -4,6 +4,7 @@ import * as session from 'express-session';
 import * as expressLayouts from 'express-ejs-layouts';
 import * as bodyParser from 'body-parser';
 import * as path from 'path';
+import * as helmet from 'helmet';
 
 // module imports
 import routes from './routes';
@@ -15,6 +16,9 @@ import handleError from './middlewares/handleError';
 
 // create a new express application instance
 const app: express.Application = express();
+
+// security
+app.use(helmet.default());
 
 // set template engine
 app.use(expressLayouts)

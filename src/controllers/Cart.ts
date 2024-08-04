@@ -18,7 +18,7 @@ export const showCart = (req: Request, res: Response) => {
 };
 
 // add product endpoint
-export const addProduct = async (req: Request, res: Response) => {
+export const addToCart = async (req: Request, res: Response) => {
     const productID: string = req.body.product_id;
 
     if (!productID) {

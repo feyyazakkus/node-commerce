@@ -1,7 +1,7 @@
 
 (function ($) {
     "use strict";
-    console.log("hello from main.js")
+
     /*[ Load page ]
     ===========================================================*/
     $(".animsition").animsition({
@@ -188,9 +188,6 @@
             $('.panel-filter').slideUp(400);
         }
     });
-
-
-
 
     /*==================================================================
     [ Cart ]*/

@@ -1,7 +1,8 @@
-import IProduct from './Product';
+import ICartItem from './CartItem';
+
 
 export default interface ICart {
-    items: IProduct[],
+    items: ICartItem[],
     totalItems: number,
     totalPrice: number
 }

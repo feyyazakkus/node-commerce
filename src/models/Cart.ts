@@ -1,8 +1,9 @@
 import IProduct from '../interfaces/Product';
 import ICart from '../interfaces/Cart';
-
+import CartItem from './CartItem';
+import ICartItem from '../interfaces/CartItem';
 class Cart implements ICart {
-    items: IProduct[];
+    items: CartItem[];
     totalItems: number;
     totalPrice: number;
 
@@ -13,16 +14,17 @@ class Cart implements ICart {
     }
 
     addItem(product: IProduct) {
-        this.items.push(product);
-        this.totalItems = this.items.length;
+        const cartItem = new CartItem(product);
+        this.items.push(cartItem);
         this.calculate();
     }
 
     private calculate() {
         const cartTotal = this.items.reduce((acc, item) => {
-            return acc + item.price;
+            return acc + item.product.price;
         }, 0);
         this.totalPrice = cartTotal;
+        this.totalItems = this.items.length;
     }
 }
 

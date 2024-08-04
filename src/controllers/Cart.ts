@@ -9,11 +9,10 @@ import ProductService from '../services/ProductService';
 import CartHelper from '../helpers/CartHelper';
 
 export const showCart = (req: Request, res: Response) => {
-    req.session.cart = CartHelper.getCart(req);
 
     res.render('pages/cart', {
         title: 'Cart',
-        cart: req.session.cart
+        cart: CartHelper.getCart(req)
     });
 };
 
@@ -22,22 +21,29 @@ export const addToCart = async (req: Request, res: Response) => {
     const productID: string = req.body.product_id;
 
     if (!productID) {
-        return res.json({ success: false });
+        return res.json({
+            success: false,
+            message: '"product_id" required'
+        });
     }
 
     const product = await ProductService.getProduct(productID);
 
-    if (product) {
-        const productName = product.title;
-        const cart = CartHelper.getCart(req);
-        cart.addItem(product);
-        CartHelper.saveCart(req, cart);
-
-        res.json({
-            success: true,
-            productName,
-            cartItemsCount: cart.items.length
+    if (!product) {
+        return res.json({
+            success: false,
+            message: 'Product not found'
         });
     }
-};
 
+    const productName = product.title;
+    const cart = CartHelper.getCart(req);
+    cart.addItem(product);
+    CartHelper.saveCart(req, cart);
+
+    res.json({
+        success: true,
+        productName,
+        cartItemsCount: cart.items.length
+    });
+};

@@ -9,11 +9,10 @@ import ProductService from '../services/ProductService';
 import CartHelper from '../helpers/CartHelper';
 
 export const showWishlist = (req: Request, res: Response) => {
-    const products = [];
 
     res.render('pages/wishlist', {
         title: 'Wishlist',
-        products
+        products: []
     });
 };
 

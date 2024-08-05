@@ -14,17 +14,45 @@ class Cart implements ICart {
     }
 
     addItem(product: IProduct) {
+        if (this.isItemAlreadyInCart(product)) {
+            this.updateItem(product);
+            return;
+        }
+
+        this.createItem(product);
+    }
+
+    private createItem(product: IProduct) {
         const cartItem = new CartItem(product);
         this.items.push(cartItem);
         this.calculate();
     }
 
+    private updateItem(product: IProduct) {
+        // update quantity
+        this.items.forEach(item => {
+            if (item.product_id == product.product_id) {
+                item.quantity += 1;
+            }
+        });
+        this.calculate();
+    }
+
+    private isItemAlreadyInCart(product: IProduct) {
+        return this.items.find(item => item.product_id == product.product_id);
+    }
+
     private calculate() {
-        const cartTotal = this.items.reduce((acc, item) => {
-            return acc + item.product.price;
-        }, 0);
-        this.totalPrice = cartTotal;
-        this.totalItems = this.items.length;
+        let totalItems = 0;
+        let totalPrice = 0;
+
+        this.items.map(item => {
+            totalPrice += item.product.price * item.quantity;
+            totalItems += item.quantity;
+        });
+
+        this.totalPrice = totalPrice;
+        this.totalItems = totalItems;
     }
 }
 

@@ -10,7 +10,7 @@
             if (response.success) {
                 swal(response.productName, "is added to cart !", "success");
                 $('.js-show-cart')
-                    .attr('data-notify', response.cartItemsCount)
+                    .attr('data-notify', response.cartTotalItems)
                     .removeClass('icon-header-noti')
                     .addClass('icon-header-noti');
             }

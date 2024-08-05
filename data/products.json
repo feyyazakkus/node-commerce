@@ -1,7 +1,7 @@
 [
   {
     "product_id": "1",
-    "title": "Esprit Ruffle Shirt",
+    "name": "Esprit Ruffle Shirt",
     "description": "",
     "category_id": "women",
     "image_url": "images/product-01.jpg",
@@ -9,7 +9,7 @@
   },
   {
     "product_id": "2",
-    "title": "Classic Trench Coat",
+    "name": "Classic Trench Coat",
     "description": "",
     "category_id": "women",
     "image_url": "images/product-04.jpg",
@@ -17,7 +17,7 @@
   },
   {
     "product_id": "3",
-    "title": "Front Pocket Jumper",
+    "name": "Front Pocket Jumper",
     "description": "",
     "category_id": "women",
     "image_url": "images/product-05.jpg",
@@ -25,7 +25,7 @@
   },
   {
     "product_id": "4",
-    "title": "Shirt in Stretch Cotton",
+    "name": "Shirt in Stretch Cotton",
     "description": "",
     "category_id": "women",
     "image_url": "images/product-07.jpg",
@@ -33,7 +33,7 @@
   },
   {
     "product_id": "5",
-    "title": "Mini Silver Mesh Watch",
+    "name": "Mini Silver Mesh Watch",
     "description": "",
     "category_id": "watches",
     "image_url": "images/product-15.jpg",
@@ -41,7 +41,7 @@
   },
   {
     "product_id": "6",
-    "title": "Vintage Inspired Classic",
+    "name": "Vintage Inspired Classic",
     "description": "",
     "category_id": "watches",
     "image_url": "images/product-06.jpg",
@@ -49,7 +49,7 @@
   },
   {
     "product_id": "7",
-    "title": "Plaid Men's Shirt",
+    "name": "Plaid Men's Shirt",
     "description": "",
     "category_id": "men",
     "image_url": "images/product-03.jpg",
@@ -58,7 +58,7 @@
 
   {
     "product_id": "8",
-    "title": "Lightweight Jacket",
+    "name": "Lightweight Jacket",
     "description": "",
     "category_id": "men",
     "image_url": "images/product-detail-02.jpg",
@@ -67,7 +67,7 @@
 
   {
     "product_id": "9",
-    "title": "Retro Lace Up Sneakers",
+    "name": "Retro Lace Up Sneakers",
     "description": "",
     "category_id": "shoes",
     "image_url": "images/product-19.jpg",
@@ -76,7 +76,7 @@
 
   {
     "product_id": "10",
-    "title": "Converse All Star Hi Plimsolls",
+    "name": "Converse All Star Hi Plimsolls",
     "description": "",
     "category_id": "shoes",
     "image_url": "images/product-09.jpg",
@@ -85,7 +85,7 @@
 
   {
     "product_id": "11",
-    "title": "Women men Adjustable Cap",
+    "name": "Women men Adjustable Cap",
     "description": "",
     "category_id": "hats",
     "image_url": "images/product-17.jpg",
@@ -94,7 +94,7 @@
 
   {
     "product_id": "12",
-    "title": "Kaia Cap",
+    "name": "Kaia Cap",
     "description": "",
     "category_id": "hats",
     "image_url": "images/product-18.jpg",
@@ -103,7 +103,7 @@
 
   {
     "product_id": "13",
-    "title": "Men Pants",
+    "name": "Men Pants",
     "description": "Viverra a consectetur Go sporty this summer with this vintage navy and white striped v-neck t-shirt from the Nike. Perfect for pairing with denim and white kicks for a stylish sporty...",
     "category_id": "men",
     "image_url": "images/product-20.jpg",
@@ -112,7 +112,7 @@
 
   {
     "product_id": "14",
-    "title": "Men Shirt Green",
+    "name": "Men Shirt Green",
     "description": "Lightweight woven fabric delivers superior comfort & durability. Material wicks sweat & dries really fast. Super-breathable mesh panels dump excess heat. Built-in brief for enhanced coverage. Ultra comfortable, soft knit waistband...",
     "category_id": "men",
     "image_url": "images/product-21.jpg",

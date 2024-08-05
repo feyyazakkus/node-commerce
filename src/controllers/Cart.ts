@@ -43,7 +43,7 @@ export const addToCart = async (req: Request, res: Response) => {
     res.json({
         success: true,
         cart: cart,
-        productName: product.title,
+        productName: product.name,
         cartTotalItems: cart.totalItems
     });
 };

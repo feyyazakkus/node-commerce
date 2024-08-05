@@ -5,7 +5,7 @@ const client = new DynamoDBClient({endpoint: "http://localhost:8000"});
 const docClient = DynamoDBDocumentClient.from(client);
 
 const main = async () => {
-    const products = require('./product-db.json');
+    const products = require('./products.json');
 
     const putRequests = products.map((product) => ({
         PutRequest: {

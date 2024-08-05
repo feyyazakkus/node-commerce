@@ -51,7 +51,7 @@ class Cart implements ICart {
             totalItems += item.quantity;
         });
 
-        this.totalPrice = totalPrice;
+        this.totalPrice = Number(totalPrice.toFixed(2));
         this.totalItems = totalItems;
     }
 }

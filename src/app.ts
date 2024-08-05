@@ -4,8 +4,9 @@ import * as session from 'express-session';
 import * as expressLayouts from 'express-ejs-layouts';
 import * as bodyParser from 'body-parser';
 import * as path from 'path';
-import * as helmet from 'helmet';
+import * as cookieParser from 'cookie-parser';
 
+import { Request, Response, NextFunction } from 'express'
 // module imports
 import routes from './routes';
 import config from './config';
@@ -17,8 +18,8 @@ import handleError from './middlewares/handleError';
 // create a new express application instance
 const app: express.Application = express();
 
-// security
-app.use(helmet.default());
+// use cookie parser
+app.use(cookieParser());
 
 // set template engine
 app.use(expressLayouts)

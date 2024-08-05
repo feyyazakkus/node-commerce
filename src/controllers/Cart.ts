@@ -23,7 +23,7 @@ export const addToCart = async (req: Request, res: Response) => {
     if (!productID) {
         return res.json({
             success: false,
-            message: '"product_id" required'
+            message: '"product_id" is required'
         });
     }
 
@@ -36,7 +36,6 @@ export const addToCart = async (req: Request, res: Response) => {
         });
     }
 
-    const productName = product.title;
     const cart = CartHelper.getCart(req);
     cart.addItem(product);
     CartHelper.saveCart(req, cart);
@@ -44,7 +43,7 @@ export const addToCart = async (req: Request, res: Response) => {
     res.json({
         success: true,
         cart: cart,
-        productName,
+        productName: product.title,
         cartTotalItems: cart.totalItems
     });
 };

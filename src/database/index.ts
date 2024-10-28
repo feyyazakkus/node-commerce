@@ -17,6 +17,7 @@ export default class Database {
     }
 
     static getInstance() {
+
         if (!this.instance) {
             this.instance = new Database();
             return this.instance;

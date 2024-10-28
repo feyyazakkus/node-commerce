@@ -6,7 +6,6 @@ import * as bodyParser from 'body-parser';
 import * as path from 'path';
 import * as cookieParser from 'cookie-parser';
 
-import { Request, Response, NextFunction } from 'express'
 // module imports
 import routes from './routes';
 import config from './config';

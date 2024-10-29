@@ -30,8 +30,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// set public folder
+// set public folder and link libraries
 app.use(express.static('public'));
+app.use('/vendor/bootstrap/js', express.static(path.join(__dirname, '../node_modules/bootstrap/dist/js')));
+app.use('/vendor/bootstrap/css', express.static(path.join(__dirname, '../node_modules/bootstrap/dist/css')))
 
 app.use(session({
     secret: 'mycartapp',

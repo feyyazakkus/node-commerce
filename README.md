@@ -13,24 +13,25 @@ These instructions will help you set up the project on your local machine for de
 ### Prerequisites
 - Node.js (v14 or later)
 - npm (v6 or later)
+- DynamoDB local database
 
 ### Installation
 
 1. Clone the repository:
 
-```bash
+```
 git clone https://github.com/yourusername/node-commerce.git
 ```
 
 2. Navigate to the project directory:
 
-```bash
+```
 cd node-commerce
 ```
 
 3. Install the dependencies:
 
-```bash
+```
 npm install
 ```
 
@@ -39,7 +40,7 @@ npm install
 
 1. Create a `.env` file in the root directory and add the following environment variables:
 
-```dotenv
+```
 PORT=3000
 NODE_ENV=[development|production]
 AWS_REGION=YOUR_AWS_REGION
@@ -51,23 +52,26 @@ Replace the placeholder values with your own configuration settings.
 ### Running the Application
 
 #### Development
-
 To start the application in development mode, run:
 
-`npm run dev`
+```
+npm start
+```
 
 The application will be available at [http://localhost:3000](http://localhost:3000).
 
 #### Production
-
 To build and start the application in production mode, run:
 
-`npm run prod:start`
+```
+npm run prod:build
+npm run prod:start
+```
 
 ### Scripts
 
-`npm run start`: Starts the application in development mode.
-`npm run tsc`: Compiles TypeScript files.
-`npm run dev`: Starts the application with ts-node-dev for development.
-`npm run prod:build`: Builds the application for production.
-`npm run prod:start`: Builds and starts the application using PM2 in production mode.
+- `npm start`: Shortcut to start the application in development mode.
+- `npm run tsc`: Compiles TypeScript files.
+- `npm run dev`: Starts the application for development mode.
+- `npm run prod:build`: Builds the application for production.
+- `npm run prod:start`: Builds and starts the application using PM2 in production mode.

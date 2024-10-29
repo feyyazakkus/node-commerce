@@ -1,1 +1,5 @@
 public/* linguist-vendored
+public/css/main.css linguist-vendored
+public/css/util.css linguist-vendored
+public/fonts/iconic/css/material-design-iconic-font.css linguist-vendored
+public/fonts/font-awesome-4.7.0/css/font-awesome.css linguist-vendored

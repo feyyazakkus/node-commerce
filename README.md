@@ -2,6 +2,8 @@
 # Node-Commerce
 Node-Commerce is a Node.js-based e-commerce application designed to provide a robust and scalable platform for online shopping. This application is built with modern web technologies and follows best practices to ensure high performance and security.
 
+<img src="https://github.com/user-attachments/assets/d8267e88-f736-480f-a3f2-8a11fde42ab5" width="500" alt="NodeCommerce">
+
 ## Features
 - Product catalog with categories
 - Shopping cart functionality based on session
@@ -97,4 +99,4 @@ npm run prod:start
 - `npm run tsc`: Compiles TypeScript files.
 - `npm run dev`: Starts the application for development mode.
 - `npm run prod:build`: Builds the application for production.
-- `npm run prod:start`: Builds and starts the application using PM2 in production mode.
+- `npm run prod:start`: Builds and starts the application using PM2 in production mode. 

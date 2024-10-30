@@ -43,23 +43,31 @@ npm install
 #### AWS DynamoDB
 
 1. Download & Install DynamoDB local database following by this document https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html
+
 2. Start the database:
-	```
-	cd dynamodb-local-foler
-	java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
-	```
+
+```
+cd dynamodb_local_latest
+java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
+```
+
 3. Create `Products`  table:
-	```
-	aws dynamodb create-table --cli-input-json file://data/product-table-definition.json --endpoint-url http://localhost:8000
-	```
+
+```
+aws dynamodb create-table --cli-input-json file://data/product-table-definition.json --endpoint-url http://localhost:8000
+```
+
 4. Verify that the table is created:
-	```
-	aws dynamodb list-tables --endpoint-url http://localhost:8000
-	```
+
+```
+aws dynamodb list-tables --endpoint-url http://localhost:8000
+```
+
 5. Run the following script to import products.json into Products table:
-	```
-    node batch-write-item-products-dynamodb.js
-    ```
+
+```
+node batch-write-item-products-dynamodb.js
+```
 
 #### .env file
 
@@ -99,4 +107,4 @@ npm run prod:start
 - `npm run tsc`: Compiles TypeScript files.
 - `npm run dev`: Starts the application for development mode.
 - `npm run prod:build`: Builds the application for production.
-- `npm run prod:start`: Builds and starts the application using PM2 in production mode. 
+- `npm run prod:start`: Builds and starts the application using PM2 in production mode.

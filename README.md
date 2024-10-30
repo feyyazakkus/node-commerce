@@ -38,15 +38,38 @@ npm install
 
 ### Configuration
 
+#### AWS DynamoDB
+
+1. Download & Install DynamoDB local database following by this document https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html
+2. Start the database:
+	```
+	cd dynamodb-local-foler
+	java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
+	```
+3. Create `Products`  table:
+	```
+	aws dynamodb create-table --cli-input-json file://data/product-table-definition.json --endpoint-url http://localhost:8000
+	```
+4. Verify that the table is created:
+	```
+	aws dynamodb list-tables --endpoint-url http://localhost:8000
+	```
+5. Run the following script to import products.json into Products table:
+	```
+    node batch-write-item-products-dynamodb.js
+    ```
+
+#### .env file
+
 1. Create a `.env` file in the root directory and add the following environment variables:
 
 ```
 PORT=3000
 NODE_ENV=[development|production]
 AWS_REGION=YOUR_AWS_REGION
-AWS_ENDPOINT=YOUR_AWS_DB_LOCAL_ENDPOINT
+AWS_ENDPOINT=YOUR_AWS_DB_LOCAL_ENDPOINT (http://localhost:8000)
 ```
-Replace the placeholder values with your own configuration settings.
+2. Replace the placeholder values with your own configuration settings.
 
 
 ### Running the Application

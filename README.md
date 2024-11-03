@@ -1,8 +1,17 @@
 
 # Node-Commerce
-Node-Commerce is a Node.js-based e-commerce application designed to provide a robust and scalable platform for online shopping. This application is built with modern web technologies and follows best practices to ensure high performance and security.
+NodeCommerce is a lightweight, server-side MVC-based e-commerce application built with Node.js, TypeScript and AWS DynamoDB. This project aims to demonstrate the use of session-based shopping cart functionality with a focus on simplicity and ease of use.
+
+This project is also designed for learning purposes, showcasing best practices in Node.js and TypeScript applications.
 
 <img src="https://github.com/user-attachments/assets/d8267e88-f736-480f-a3f2-8a11fde42ab5" width="500" alt="NodeCommerce">
+
+## Technical Stack
+- Node.js
+- TypeScript
+- AWS DynamoDB
+- Express
+- EJS
 
 ## Features
 - Product catalog with categories
@@ -22,7 +31,7 @@ These instructions will help you set up the project on your local machine for de
 1. Clone the repository:
 
 ```
-git clone https://github.com/yourusername/node-commerce.git
+git clone https://github.com/feyyazakkus/node-commerce.git
 ```
 
 2. Navigate to the project directory:

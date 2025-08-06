@@ -1,11 +1,8 @@
-export default interface Product {
-    id: number;
-    brand_id: string;
-    external_id: string;
-    title: string;
+export default interface IProduct {
+    product_id: string;
+    name: string;
     description: string;
-    product_page_url: string;
     image_url: string;
-    category_id: number;
-    product_id: number;
+    category_id: string;
+    price: number;
 }

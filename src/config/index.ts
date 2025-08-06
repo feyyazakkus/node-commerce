@@ -1,5 +1,9 @@
+// config variables
 const config = {
-    clientURL: 'http://localhost:3000'
-};
+    dynamoDB: {
+        region: process.env.AWS_REGION,
+        endpoint: process.env.AWS_ENDPOINT
+    }
+}
 
 export default config;

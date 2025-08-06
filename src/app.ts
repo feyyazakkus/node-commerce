@@ -1,71 +1,53 @@
+// library imports
 import * as express from 'express';
 import * as session from 'express-session';
-import * as cors from 'cors';
+import * as expressLayouts from 'express-ejs-layouts';
 import * as bodyParser from 'body-parser';
 import * as path from 'path';
+import * as cookieParser from 'cookie-parser';
 
+// module imports
+import routes from './routes';
 import config from './config';
-import Cart from './models/Cart';
-import Product from './interfaces/Product'
 
-// Create a new express application instance
+// middlewares
+import setLocals from './middlewares/setLocals';
+import handleError from './middlewares/handleError';
+
+// create a new express application instance
 const app: express.Application = express();
-const products: Product[] = require('../data/products.json');;
 
+// use cookie parser
+app.use(cookieParser());
+
+// set template engine
+app.use(expressLayouts)
+app.set('layout', './layouts/main')
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-
+// bodyparser config
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors({
-    origin:[config.clientURL],
-    methods:['GET','POST'],
-    credentials: true // enable set cookie
-}));
+
+// set public folder and link libraries
+app.use(express.static('public'));
+app.use('/vendor/bootstrap/js', express.static(path.join(__dirname, '../node_modules/bootstrap/dist/js')));
+app.use('/vendor/bootstrap/css', express.static(path.join(__dirname, '../node_modules/bootstrap/dist/css')))
+
 app.use(session({
     secret: 'mycartapp',
     resave: false,
     saveUninitialized: true
 }));
 
-app.get('/products', function (req: express.Request, res: express.Response) {
-    const filteredProducts = products.filter(product =>  product.description);
-    res.json(filteredProducts);
-});
+app.use(setLocals);
+app.use('/', routes); // bind routes
+app.use(handleError); // // error handler middleware
 
-app.get('/', function (req: express.Request, res: express.Response) {
-    res.render('index', { title: 'NodeCommerce' });
-});
+// start server
+const port: Number = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 
-app.post('/cart/add', function (req: express.Request, res: express.Response) {
-    const product = products.find(product => product.id === req.body.productId);
-
-    if (!product) {
-        return res.json({
-            success: false,
-            message: 'Product not found'
-        });
-    }
-
-    const cart = new Cart(req.session.cart);
-    cart.addItem(product);
-
-    // save in session after update the cart
-    req.session.cart = cart;
-
-    res.json({
-        success: true,
-        cart: req.session.cart
-    });
-});
-
-app.get('/cart', function (req: express.Request, res: express.Response) {
-    req.session.cart = req.session.cart ? new Cart(req.session.cart) : new Cart({});
-
-    res.json({ cart: req.session.cart });
-});
-
-app.listen(3001, function () {
-    console.log('App running on port 3001');
+app.listen(port, function () {
+    console.log('App running on port ' + port);
 });

@@ -1,8 +1,10 @@
-name: Sync main branch to Bitbucket
+name: Sync to Bitbucket
 
 on:
   push:
     branches:
+      - develop
+      - uat
       - main
 
 jobs:
@@ -12,14 +14,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Get full history to allow push
+          fetch-depth: 0  # Full history to allow full push
 
       - name: Configure Git
         run: |
           git config user.name "GitHub Sync Bot"
           git config user.email "${{ secrets.BB_BOT_EMAIL }}"
 
-      - name: Add Bitbucket remote and push main branch
+      - name: Add Bitbucket remote
         run: |
           git remote add bitbucket https://x-token-auth:${{ secrets.BB_TOKEN }}@bitbucket.org/${{ secrets.BB_REPO_PATH }}.git
-          git push bitbucket main --force
+
+      - name: Push current branch to Bitbucket
+        run: |
+          BRANCH="${GITHUB_REF#refs/heads/}"
+          echo "Pushing branch: $BRANCH"
+          git push bitbucket $BRANCH --force
+
+      - name: Push tags (only on main)
+        if: github.ref_name == 'main'
+        run: |
+          echo "Pushing tags from main branch"
+          git push bitbucket --tags --force
